@@ -8,7 +8,7 @@ function Leaderboard({ userIds, users }) {
                 {
                     userIds.map((id, idx) => (
                         <li className="list-group-item" key={id}>
-                            <h4>{idx + 1}. Name: {users[id].name}</h4> <br />
+                            <h4>{idx + 1}. <img src={users[id].avatarURL} alt={`Avatar of ${users[id].name}`} className="avatar" /> Name: {users[id].name}</h4> <br />
                             <span># of Questions asked: {users[id].questions.length}</span> <br />
                             <span># of Questions answered: {Object.keys(users[id].answers).length}</span>
                         </li>

@@ -5,7 +5,6 @@ import AnsweredQuestion from './AnsweredQuestion';
 
 const QuestionDetails = ({ authedUser, question, user, totalUsers, dispatch }) => {
     const { avatarURL, name } = user;
-    const avatar = avatarURL;
     const isQuestionAnswered = Object.keys(authedUser.answers).includes(question.id);
     const answeredComponent = <AnsweredQuestion authedUser={authedUser} question={question} totalUsers={totalUsers} />;
     const unansweredComponent = <UnansweredQuestion authedUser={authedUser} question={question} dispatch={dispatch} />;
@@ -15,7 +14,7 @@ const QuestionDetails = ({ authedUser, question, user, totalUsers, dispatch }) =
             <div className="poll-info">
                 <div className='poll'>
                     <div className="col-lg">
-                        <img src={avatar} alt={`Avatar of ${name}`} className="avatar" />
+                        <img src={avatarURL} alt={`Avatar of ${name}`} className="avatar" />
                         <span style={{ color: `black`, fontWeight: `unset`, fontSize: `22px` }}>Would You Rather</span>
                         { pollComponent }
                     </div>
