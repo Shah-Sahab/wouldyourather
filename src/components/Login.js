@@ -29,7 +29,8 @@ class Login extends Component {
         if (this.state.selectedUser === "-1") {
             return alert('Please select a user first. Thank you!');
         }
-        this.props.dispatch(handleSetAuthUser(this.props.users[this.state.selectedUser]));
+        // this.props.dispatch(handleSetAuthUser(this.props.users[this.state.selectedUser]));
+        this.props.dispatch(handleSetAuthUser(this.state.selectedUser));
     }
 
     handleSelectionChange = (event) => {
@@ -53,9 +54,7 @@ class Login extends Component {
                     <div>
                         <input type="submit" value="Login" />
                     </div>
-
                 </div>
-
             </form>
         );
     }

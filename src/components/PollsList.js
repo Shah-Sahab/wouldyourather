@@ -5,7 +5,7 @@ import './toggle.css';
 function PollsList(props) {
     const { answeredQuestionIds, unansweredQuestionIds, questions } = props;
     const pollTextObj = { true: 'Showing answered polls', false: 'Showing unanswered polls' };
-    const pollBasedIds = { true: unansweredQuestionIds, false: answeredQuestionIds };
+    const pollBasedIds = { true: answeredQuestionIds, false: unansweredQuestionIds };
     const [toggle, setToggle] = useState(false);
     const [message, setMessage] = useState(pollTextObj[false]);
     const [ids, setIds] = useState(pollBasedIds[false]);
@@ -51,8 +51,9 @@ function PollsList(props) {
 }
 
 function mapStateToPropss(state) {
-    const { authedUser, questions } = state;
-    const answeredQuestionIds = Object.keys(authedUser.answers);
+    console.log('POLL LIST STATE', state);
+    const { authedUserId, questions, users } = state;
+    const answeredQuestionIds = Object.keys(users[authedUserId].answers);
     const keys = Object.keys(questions);
     const unansweredQuestionIds = keys.filter(questionId => !answeredQuestionIds.includes(questionId));
     return {

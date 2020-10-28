@@ -52,9 +52,9 @@ function Nav(props) {
     );
 };
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUserId, users }) {
     return {
-        authedUser
+        authedUser: users[authedUserId]
     }
 }
 

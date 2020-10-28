@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import UnansweredQuestion from './UnansweredQuestion';
 import AnsweredQuestion from './AnsweredQuestion';
 
-
-const QuestionDetails = ({ authedUser, question, user, dispatch }) => {
+const QuestionDetails = ({ authedUser, question, user, totalUsers, dispatch }) => {
     const { avatarURL, name } = user;
     const avatar = avatarURL;
     const isQuestionAnswered = Object.keys(authedUser.answers).includes(question.id);
-    const pollComponent = isQuestionAnswered ? <UnansweredQuestion authedUser={authedUser} question={question} dispatch={dispatch} /> : <AnsweredQuestion />;
+    const answeredComponent = <AnsweredQuestion authedUser={authedUser} question={question} totalUsers={totalUsers} />;
+    const unansweredComponent = <UnansweredQuestion authedUser={authedUser} question={question} dispatch={dispatch} />;
+    const pollComponent = !isQuestionAnswered ?  unansweredComponent : answeredComponent; 
     return (
         <div>
             <div className="poll-info">
@@ -24,14 +25,15 @@ const QuestionDetails = ({ authedUser, question, user, dispatch }) => {
     );
 }
 
-const mapStateToProps = ({ questions, users, authedUser }, props) => {
+const mapStateToProps = ({ questions, users, authedUserId }, props) => {
     const { questionId } = props.match.params;
     const question = questions[questionId];
     return {
         id: questionId,
         question,
         user: users[question.author],
-        authedUser
+        authedUser: users[authedUserId],
+        totalUsers: Object.keys(users).length
     };
 };
 

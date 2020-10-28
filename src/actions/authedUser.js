@@ -1,15 +1,16 @@
 export const SET_AUTHED_USER = 'SET_AUTHED_USER';
+export const LOG_OUT = 'LOG_OUT';
 
-export function handleSetAuthUser(authedUser) {
+export function handleSetAuthUser(authedUserId) {
     return {
         type: SET_AUTHED_USER,
-        authedUser
+        authedUserId
     };
 }
 
-export function handleLogout(authedUser = null) {
+export function handleLogout(authedUserId = null) {
     return {
-        type: SET_AUTHED_USER,
-        authedUser
+        type: LOG_OUT,
+        authedUserId
     };
 }

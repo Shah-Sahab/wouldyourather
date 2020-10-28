@@ -18,7 +18,7 @@ export default function (state = {}, action) {
                         ...state[userId].answers, [qid]: action.upvotedOption
                     }
                 }
-            }
+            };
         default:
             return state;
     }

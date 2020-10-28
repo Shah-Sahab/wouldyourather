@@ -7,6 +7,6 @@ import users from './users';
 export default combineReducers({
     loadingBar: loadingBarReducer,
     questions,
-    authedUser,
+    authedUserId: authedUser,
     users
 });

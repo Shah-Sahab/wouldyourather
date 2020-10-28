@@ -5,6 +5,7 @@ import { handleInitialData } from '../actions/shared';
 import QuestionDetails from './QuestionDetails';
 import PollsList from './PollsList';
 import Login from './Login';
+import AddQuestion from './AddQuestion';
 import Nav from './Nav';
 import './App.css';
 
@@ -14,15 +15,16 @@ class App extends Component {
   }
 
   render() {
-    const { authedUser } = this.props;
+    const { authedUserId } = this.props;
     return (
       <Router>
         <div className="App">
           <Nav />
-          {authedUser ? (
+          {authedUserId ? (
             <div>
               <Route path='/' exact component={PollsList} /> 
               <Route path='/question/:questionId' component={QuestionDetails} />
+              <Route path='/add' component={AddQuestion} />
             </div>
           ) : (<Login />)}
         </div>
@@ -32,9 +34,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser }) => {
+const mapStateToProps = ({ authedUserId }) => {
   return {
-    authedUser
+    authedUserId
   };
 };
 
