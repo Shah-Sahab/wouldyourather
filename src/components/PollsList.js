@@ -16,8 +16,6 @@ function PollsList(props) {
     }
 
     const handleLiClick = (event) => {
-        // console.log('event target Parent Node ID', event.target.parentNode.id);
-        console.log('event target current Target ID', event.currentTarget.id);
         props.history.push(`/question/${event.currentTarget.id}`);
     };
 
@@ -51,11 +49,10 @@ function PollsList(props) {
 }
 
 function mapStateToPropss(state) {
-    console.log('POLL LIST STATE', state);
     const { authedUserId, questions, users } = state;
-    const answeredQuestionIds = Object.keys(users[authedUserId].answers);
+    const answeredQuestionIds = Object.keys(users[authedUserId].answers).sort((a,b) => questions[b].timestamp - questions[a].timestamp);
     const keys = Object.keys(questions);
-    const unansweredQuestionIds = keys.filter(questionId => !answeredQuestionIds.includes(questionId));
+    const unansweredQuestionIds = keys.filter(questionId => !answeredQuestionIds.includes(questionId)).sort((a,b) => questions[b].timestamp - questions[a].timestamp);
     return {
         answeredQuestionIds,
         unansweredQuestionIds,

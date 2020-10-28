@@ -9,7 +9,6 @@ const AddQuestion = (props) => {
     const { register, errors, handleSubmit } = useForm();
     const [submitClicked, setSubmit] = useState(false);
     const onSubmit = data => {
-        console.log(data);
         props.dispatch(handleAddQuestion(props.authedUserId, data.optionOne, data.optionTwo));
         setSubmit(true);
     }

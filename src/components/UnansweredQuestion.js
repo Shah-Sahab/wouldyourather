@@ -6,7 +6,6 @@ function UnansweredQuestion({ authedUser, question, dispatch }) {
     const [option1CSS, setOption1CSS] = useState('hide');
     const [option2CSS, setOption2CSS] = useState('hide');
     const handleUpvote = (e) => {
-        console.log('liClickListener: target', e.currentTarget.id);
         if (e.currentTarget.id === 'optionOne') {
             setOption1CSS('show');
             setOption2CSS('hide');

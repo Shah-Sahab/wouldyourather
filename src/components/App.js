@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import QuestionDetails from './QuestionDetails';
 import PollsList from './PollsList';
 import Login from './Login';
 import AddQuestion from './AddQuestion';
+import PageNotFound from './PageNotFound';
+import Leaderboard from './Leaderboard';
 import Nav from './Nav';
 import './App.css';
 
@@ -22,9 +24,15 @@ class App extends Component {
           <Nav />
           {authedUserId ? (
             <div>
-              <Route path='/' exact component={PollsList} /> 
-              <Route path='/question/:questionId' component={QuestionDetails} />
-              <Route path='/add' component={AddQuestion} />
+              <Switch>
+                <Route path='/' exact component={PollsList} />
+                <Route path='/question/:questionId' component={QuestionDetails} />
+                <Route path='/add' component={AddQuestion} />
+                <Route path='/Leaderboard' component={Leaderboard} />
+                {/* add 404 page  */}
+                <Route path="*" component={PageNotFound} />
+              </Switch>
+
             </div>
           ) : (<Login />)}
         </div>

@@ -172,7 +172,6 @@ export function _saveQuestion (question) {
 }
 
 export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
-  console.log(`_saveQuestionAnswer : authedUser=${authedUser}, qid=${qid}, answer=${answer}`);
   return new Promise((res, rej) => {
     setTimeout(() => {
       users = {

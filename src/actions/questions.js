@@ -47,7 +47,6 @@ function addPoll(question) {
 }
 
 export function handleAddQuestion(authedUserId, optionOne, optionTwo) {
-    // console.log(`handleAddQuestion:: ${authedUserId}, ${optionOne}, ${optionTwo}`);
     const question = {
         optionOneText: optionOne,
         optionTwoText: optionTwo,

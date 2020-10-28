@@ -8,3 +8,5 @@ function PageNotFound(props) {
         </div>
     );
 }
+
+export default PageNotFound;
