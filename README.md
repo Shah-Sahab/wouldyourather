@@ -8,6 +8,8 @@ A user is asked a question in the form: “Would you rather [option A] or [optio
 
 ## Screens/Views:
 
+#### Login: Allows the user to login by selecting a user.
+
 #### PollsList: This allows the user to see the list of all the questions (unanswered/answered).
 
 #### Add Poll: Add Poll allows the user to new Polls.
@@ -20,9 +22,6 @@ A user is asked a question in the form: “Would you rather [option A] or [optio
 Before you run this application, please make sure to run `npm install` or `yarn install` depending on which Package Manager you are using.
 
 Once all the dependencies are installed, you can run the app by running `npm start` or `yarn start`.
-
-
-In order to install the dependenc
 
 ## Available Scripts
 
