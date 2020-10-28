@@ -8,11 +8,9 @@ function PollsList(props) {
     const pollBasedIds = { true: answeredQuestionIds, false: unansweredQuestionIds };
     const [toggle, setToggle] = useState(false);
     const [message, setMessage] = useState(pollTextObj[false]);
-    const [ids, setIds] = useState(pollBasedIds[false]);
-    const handleCheckChange = (e) => {
+    const handleToggleChange = (e) => {
         setToggle(!toggle);
         setMessage(pollTextObj[!toggle]);
-        setIds(pollBasedIds[!toggle]);
     }
 
     const handleLiClick = (event) => {
@@ -24,14 +22,14 @@ function PollsList(props) {
             <div className='flex-container'>
                 <label htmlFor='togglePolls'>{message}</label> &nbsp;
                 <label className='switch'>
-                    <input id='togglePolls' name='togglePolls' type='checkbox' value={toggle} onClick={e => handleCheckChange(e)}></input>
+                    <input id='togglePolls' name='togglePolls' type='checkbox' value={toggle} onClick={e => handleToggleChange(e)}></input>
                     <span className='slider round'></span>
                 </label>
             </div>
 
             <ul>
                 {
-                    ids.map(id => (
+                    pollBasedIds[toggle].map(id => (
                         <li id={id} key={id} onClick={e => handleLiClick(e)}>
                             <div className='container' style={{ border: `1px dashed yellowGreen` }}>
                                 <h5 style={{alignContent:`center`}}>Would You Rather???</h5>
@@ -39,7 +37,6 @@ function PollsList(props) {
                                 <br />
                                 <span>2. {questions[id].optionTwo.text}</span>
                             </div>
-
                         </li>
                     ))
                 }

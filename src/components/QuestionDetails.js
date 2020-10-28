@@ -1,9 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom'
 import UnansweredQuestion from './UnansweredQuestion';
 import AnsweredQuestion from './AnsweredQuestion';
 
-const QuestionDetails = ({ authedUser, question, user, totalUsers, dispatch }) => {
+const QuestionDetails = ({ authedUser, question, user, totalUsers, dispatch, questionNotFound }) => {
+    if (questionNotFound) {
+        return <Redirect to='/404' />;
+    }
+
     const { avatarURL, name } = user;
     const isQuestionAnswered = Object.keys(authedUser.answers).includes(question.id);
     const answeredComponent = <AnsweredQuestion authedUser={authedUser} question={question} totalUsers={totalUsers} />;
@@ -30,9 +35,10 @@ const mapStateToProps = ({ questions, users, authedUserId }, props) => {
     return {
         id: questionId,
         question,
-        user: users[question.author],
+        user: question ? users[question.author] : null,
         authedUser: users[authedUserId],
-        totalUsers: Object.keys(users).length
+        totalUsers: Object.keys(users).length,
+        questionNotFound: question ? false : true
     };
 };
 

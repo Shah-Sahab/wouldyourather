@@ -31,6 +31,7 @@ class App extends Component {
                 <Route path='/Leaderboard' component={Leaderboard} />
                 {/* add 404 page  */}
                 <Route path="*" component={PageNotFound} />
+                <Route path="/404" component={PageNotFound} />
               </Switch>
 
             </div>
