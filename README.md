@@ -2,9 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # WOULD YOU RATHER ???
 
-Would You Rather is an app which allows you to respond to different Polls created. Each Poll contains two options and the user has to select one of the choices between the two.
-
-A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules. Users choose between the two option, or are able to add New Polls. 
+Would You Rather is an app which allows you to respond to different Polls created. Each Poll contains two options and the user has to select one of the choices between the two. User cannot select neither or both.
 
 ## Screens/Views:
 
