@@ -1,5 +1,29 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# WOULD YOU RATHER ???
+
+Would You Rather is an app which allows you to respond to different Polls created. Each Poll contains two options and the user has to select one of the choices between the two.
+
+A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules. Users choose between the two option, or are able to add New Polls. 
+
+## Screens/Views:
+
+#### PollsList: This allows the user to see the list of all the questions (unanswered/answered).
+
+#### Add Poll: Add Poll allows the user to new Polls.
+
+#### Question Details: Upon click of a user on a Poll, user it redirected to the Question Details Screen where the user is shown the actual question and whether they have already answered it or if its unanswered.
+
+#### Leaderboard: Leaderboard Screen shows on average who is on the top of the Leaderboard. The one on the top will have answered the most question + will have the most questions asked.
+
+## Before You Start - Installation Guide:
+Before you run this application, please make sure to run `npm install` or `yarn install` depending on which Package Manager you are using.
+
+Once all the dependencies are installed, you can run the app by running `npm start` or `yarn start`.
+
+
+In order to install the dependenc
+
 ## Available Scripts
 
 In the project directory, you can run:
