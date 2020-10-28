@@ -14,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'https://waterfordwhispersnews.com/wp-content/uploads/2015/01/21.jpg',
+    avatarURL: 'https://sociallover.net/wp-content/uploads/2017/05/cute-images.png',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
