@@ -4,6 +4,7 @@ export const RECEIVE_QUESTION_DETAILS = 'RECEIVE_QUESTION_DETAILS';
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const ANSWER_UPVOTE = 'ANSWER_UPVOTE';
 export const ADD = 'ADD';
+export const ADD_QUESTION_TO_USER = 'ADD_QUESTION_TO_USER';
 
 export function receiveQuestions(questions) {
     return {
@@ -46,6 +47,14 @@ function addPoll(question) {
     };
 }
 
+function addQuestionToUser(question, authedUserId) {
+    return {
+        type: ADD_QUESTION_TO_USER,
+        question,
+        authedUserId
+    }; 
+}
+
 export function handleAddQuestion(authedUserId, optionOne, optionTwo) {
     const question = {
         optionOneText: optionOne,
@@ -56,6 +65,7 @@ export function handleAddQuestion(authedUserId, optionOne, optionTwo) {
         dispatch(showLoading());
         return _saveQuestion(question).then(res => {
             dispatch(addPoll(res));
+            dispatch(addQuestionToUser(res, authedUserId));
             dispatch(hideLoading());
         });
     };

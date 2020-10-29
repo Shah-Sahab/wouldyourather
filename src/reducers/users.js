@@ -1,5 +1,6 @@
 import { RECEIVE_USERS } from '../actions/users';
 import { ANSWER_UPVOTE } from '../actions/questions';
+import { ADD_QUESTION_TO_USER } from '../actions/questions';
 
 export default function (state = {}, action) {
     switch (action.type) {
@@ -17,6 +18,14 @@ export default function (state = {}, action) {
                     ...state[userId], answers: {
                         ...state[userId].answers, [qid]: action.upvotedOption
                     }
+                }
+            };
+        case ADD_QUESTION_TO_USER:
+            return {
+                ...state,
+                [action.authedUserId]: {
+                    ...state[action.authedUserId], 
+                    questions: state[action.authedUserId].questions.concat(action.question.id)
                 }
             };
         default:
